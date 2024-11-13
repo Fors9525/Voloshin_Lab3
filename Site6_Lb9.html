@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Form</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #7c6ed0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        .main-container {
+            width: 1170px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .breadcrumbs {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .header-image {
+            width: 50px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5b49c3;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #c5c5c5;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            color: #5b49c3;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .half-width {
+            width: 50%;
+        }
+
+        .form-group input,.form-group select {
+            width: 90%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Delivery opt */
+        .delivery-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .delivery-option {
+            width: 45%;
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .delivery-option.selected {
+            background-color: #5c3bc0;
+            color: white;
+        }
+
+        .options-bottom {
+            margin-top: 30px;
+        }
+
+        /* сheckbox */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 30px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .custom-checkbox {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: #5c3bc0;
+            border-color: #5c3bc0;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .custom-checkbox:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        /* button */
+        .confirm-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #5c3bc0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .confirm-button:hover {
+            background-color: #3b27a0;
+        }
+
+
+        .button {
+            width: 100%;
+            padding: 15px;
+            background-color: #5b49c3;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #4830a2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!--Header-->
+    <div class="header">
+        <div class="logo">SHPPNG</div>
+        <div class="menu">
+            <a href="#">Shopping Bag ></a>
+            <a href="#">Checkout ></a>
+            <a href="#">Confirmation</a>
+            <img src="icon.png" alt="Your Image" class="header-image">
+        </div>
+    </div>
+
+    <!--Content-->
+    <div class="content">
+        <!--Personal Information-->
+        <div class="section">
+            <div class="section-title">
+                Personal Information
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" id="street" name="street">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option value="france">France</option>
+                            <option value="usa">USA</option>
+                            <option value="germany">Germany</option>
+                            <option value="ukraine">Ukraine</option>
+                            <option value="canada">Canada</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </form>
+        </div>
+
+            <!--Delivery-->
+        <div class="section">
+            <div class="section-title">
+                Delivery
+            </div>
+            <div class="delivery-options">
+                <div class="delivery-option" onclick="selectDeliveryOption(this)" data-value="free">
+                    <p>0$</p>
+                    <span>3-4 weeks</span>
+                </div>
+                <div class="delivery-option" onclick="selectDeliveryOption(this)" data-value="paid">
+                    <p>5$</p>
+                    <span>2-5 days</span>
+                </div>
+            </div>
+            <p class="estimated-date">Estimated delivery date: August 4th.</p>
+            <p class="tracking-info">Every package has a tracking number.</p>
+
+            <div class="options-bottom">
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        Subscribe to our newsletter
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="custom-checkbox"></span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        Create an account
+                        <input type="checkbox" id="account" name="account">
+                        <span class="custom-checkbox"></span>
+                    </label>
+                </div>
+
+                <button type="button" class="confirm-button">Confirm my order</button>
+            </div>
+        </div>
+    </div>
+    <!--JS-->
+    <script>
+        function selectDeliveryOption(selectedOption) {
+            const options = document.querySelectorAll('.delivery-option');
+
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            selectedOption.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
